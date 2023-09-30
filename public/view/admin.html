@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>admim</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Botão para adicionar -->
+        <button class="open-modal-button" onclick="openModal('addModal')">Adicionar</button>
+      
+
+        <!-- Modal para adicionar -->
+        <div id="addModal" class="modal">
+            <div class="modal-content">
+                <h2>Adicionar Livro</h2>
+                <form method="post" action="/add/new/book">
+                    <!-- Campos do formulário para adicionar dados -->
+                    <label for="bookName">Nome do livro:</label>
+                    <input type="text" id="bookName" name="bookName"><br><br>
+
+                    <label for="author">Autor do livro:</label>
+                    <input type="text" id="author" name="author"><br><br>
+
+                    <label for="price">Preço do livro:</label>
+                    <input type="number" id="price" name="price"><br><br>
+
+                    <label for="description">Descrição do livro:</label>
+                    <textarea id="description" name="description" cols="30" rows="10"></textarea><br><br>
+
+                    <!-- Botão para salvar os dados -->
+                    <button type="submit">Adicionar</button>
+                </form>
+                <!-- Botão para fechar o modal -->
+                <button onclick="closeModal('addModal')">Fechar</button>
+            </div>
+        </div>
+
+        <!-- Botão para atualizar -->
+        <button class="open-modal-button" onclick="openModal('updateModal')">Atualizar</button>
+
+        <!-- Modal para atualizar -->
+        <div id="updateModal" class="modal">
+            <div class="modal-content">
+                <h2>Atualizar Lirvos</h2>
+                <form method="post" action="/update/book/">
+                    <!-- Campos do formulário para atualizar dados -->
+                    <label for="bookname">Nome do Livro:</label>
+                    <input type="text" id="bookname" name="bookname"><br><br>
+
+                    <label for="nameUpdate">Novo nome:</label>
+                    <input type="text" id="nameUpdate" name="nameUpdate"><br><br>
+                    
+                    <label for="authorUpdate">Autor do livro:</label>
+                    <input type="text" id="authorUpdate" name="authorUpdate"><br><br>
+
+                    <label for="priceUpdate">Novo preço:</label>
+                    <input type="number" id="priceUpdate" name="priceUpdate"><br><br>
+
+                    <label for="descriptionUpdate">Nova Descrição do livro:</label>
+                    <textarea id="descriptionUpdate" name="descriptionUpdate" cols="30" rows="10"></textarea><br><br>
+
+
+                    <!-- Botão para confirmar a atualização -->
+                    <button type="submit">Atualizar</button>
+                </form>
+                <!-- Botão para fechar o modal -->
+                <button onclick="closeModal('updateModal')">Fechar</button>
+            </div>
+        </div>
+
+        <!-- Botão para deletar -->
+        <button class="open-modal-button" onclick="openModal('deleteModal')">Deletar</button>
+
+        <!-- Modal para deletar -->
+        <div id="deleteModal" class="modal">
+            <div class="modal-content">
+                <h2>Deletar Dados</h2>
+                <form action="/delete/book" method="post">
+                    <!-- Campo do formulário para inserir o ID a ser deletado -->
+                    <label for="bookname">Nome do livro:</label>
+                    <input type="text" id="bookname" name="bookname"><br><br>
+
+                    <!-- Botão para confirmar a exclusão -->
+                    <button type="submit">Deletar</button>
+                </form>
+                <!-- Botão para fechar o modal -->
+                <button onclick="closeModal('deleteModal')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir um modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+        }
+
+        // Função para fechar um modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+        }
+
+        // Função para salvar os dados
+        function saveData() {
+            // Implemente a lógica para salvar os dados no banco de dados aqui
+            alert('Dados salvos com sucesso!');
+            closeModal('addModal');
+        }
+
+        // Função para atualizar os dados
+        function updateData() {
+            // Implemente a lógica para atualizar os dados no banco de dados aqui
+            alert('Dados atualizados com sucesso!');
+            closeModal('updateModal');
+        }
+
+        // Função para deletar os dados
+        function deleteData() {
+            // Implemente a lógica para deletar os dados no banco de dados aqui
+            alert('Dados deletados com sucesso!');
+            closeModal('deleteModal');
+        }
+    </script>
+</body>
+</html>
