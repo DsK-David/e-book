@@ -44,7 +44,8 @@ app.post('/add/new/book', (req, res) => {
         bookName TEXT,
         author TEXT,
         price INTEGER,
-        description TEXT
+        description TEXT,
+        createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `);
   
